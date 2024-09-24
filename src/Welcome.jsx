@@ -3,8 +3,8 @@ import './css/FomoWallet.css'; // Import the CSS file for styling
 import { createWallet } from './utils/walletUtils';
 const FomoWallet = () => {
   return (
-    <div className="container">
-      <div className="center-content">
+    <div className="container" style={{width:"100vw"}}>
+      <div className="center-content" style={{maxWidth:"100%"}}>
         <img
           src="https://via.placeholder.com/400x300"
           alt="Fomo Wallet"
