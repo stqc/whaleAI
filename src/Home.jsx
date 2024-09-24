@@ -115,7 +115,7 @@ const PortfolioApp = () => {
         <Button label="📜" labelBottom="Create Token" />
       </Actions>
       <PortolioContainer>
-      {Object.keys(portfolio).map(item => (
+      {portfolio && Object.keys(portfolio).map(item => (
         <PortfolioItem key={portfolio[item].name} {...portfolio[item]} refresh={refresh} />
       ))}
       </PortolioContainer>
