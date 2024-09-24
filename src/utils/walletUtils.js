@@ -1,11 +1,13 @@
 import { HomeStateTrackers } from "../Home";
 import { web3 } from "../state/walletState";
 import ERC20 from "../abi/erc20.json";
+import { WelcomeStateHandler } from "../App";
 
 export function createWallet(){
     const account = web3.eth.accounts.create();
     console.log(account);
     window.localStorage.setItem("wallet",JSON.stringify(account));
+    WelcomeStateHandler.wallet.update(true);
 }
 
 export function doesWalletExist(){

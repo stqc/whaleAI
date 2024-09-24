@@ -8,7 +8,7 @@ const FomoWallet = () => {
         <img
           src="https://via.placeholder.com/400x300"
           alt="Fomo Wallet"
-          width="400"
+          width="100%"
           height="300"
         />
         <h1>Welcome to Fomo Wallet</h1>

@@ -4,13 +4,21 @@ import FomoWallet from './Welcome';
 import { doesWalletExist } from './utils/walletUtils';
 import PortfolioApp from './Home';
 
+
+export let WelcomeStateHandler={
+  wallet:{}
+}
+
 function App() {
-  
+
+  const [wallet,UpdateWallet] = useState(doesWalletExist());
+
+  WelcomeStateHandler.wallet["update"]=UpdateWallet;
 
   return (
       <div>
-       {!doesWalletExist() && <FomoWallet/>}
-       {doesWalletExist() && <PortfolioApp/>}
+       {!wallet && <FomoWallet/>}
+       {wallet && <PortfolioApp/>}
     </div>
   )
 }
