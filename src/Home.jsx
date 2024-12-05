@@ -50,7 +50,8 @@ const Actions = styled.div`
 export let HomeStateTrackers={
     balance:{},
     address:{},
-    portfolio:{}
+    portfolio:{},
+    refresh:{}
 }
 
 const PortfolioApp = () => {
@@ -89,7 +90,8 @@ const PortfolioApp = () => {
   HomeStateTrackers.portfolio["portfolio"]=portfolio;
   HomeStateTrackers.portfolio["update"]=UpdatePortfolio;
 
-
+  HomeStateTrackers.refresh["update"] = RefreshState;
+  HomeStateTrackers.portfolio["value"] = refresh;
   useEffect(()=>{
     getAddress();
     getEtherBalance();
@@ -112,7 +114,7 @@ const PortfolioApp = () => {
         <Button label="💸" labelBottom="Send" onClick={()=>{UpdatePopup(true)}}/>
         <Button label="🔄" labelBottom="Swap" onClick={()=>{addTokenToDB("0xAF93888cbD250300470A1618206e036E11470149")}}/>
         <Button label="📥" labelBottom="Add Token" onClick={()=>{UpdateAddToken(true)}}/>
-        <Button label="📜" labelBottom="Create Token" />
+        {/* <Button label="📜" labelBottom="Create Token" /> */}
       </Actions>
       <PortolioContainer>
       {portfolio && Object.keys(portfolio).map(item => (

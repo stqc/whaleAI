@@ -11,14 +11,14 @@ export let WelcomeStateHandler={
 
 function App() {
 
-  const [wallet,UpdateWallet] = useState(doesWalletExist());
+  const [wallet,UpdateWallet] = useState(false);
 
   WelcomeStateHandler.wallet["update"]=UpdateWallet;
 
   return (
       <div>
-       {!wallet && <FomoWallet/>}
-       {wallet && <PortfolioApp/>}
+     {!wallet && <FomoWallet/>}
+      {wallet && <PortfolioApp/>}
     </div>
   )
 }

@@ -43,9 +43,25 @@
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    max-width: 90%;
   }
   
   .get-started-button:hover {
     background-color: #0056b3; /* Darken on hover */
+  }
+
+  .login-page-input{
+    margin-top: 20% !important;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.1rem;
+  }
+
+  .remember-checkbox{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 600;
+    margin-top: 10px;
   }
   
