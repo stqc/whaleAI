@@ -15,10 +15,18 @@ function App() {
 
   WelcomeStateHandler.wallet["update"]=UpdateWallet;
 
+  useEffect(()=>{
+    
+    (async()=>{
+      UpdateWallet(await doesWalletExist());
+    })();
+
+  },[])
+
   return (
       <div>
-     {!wallet && <FomoWallet/>}
-      {wallet && <PortfolioApp/>}
+       {!wallet && <FomoWallet/>}
+       {wallet && <PortfolioApp/>}
     </div>
   )
 }

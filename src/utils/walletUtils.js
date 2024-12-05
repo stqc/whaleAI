@@ -2,15 +2,17 @@ import { HomeStateTrackers } from "../Home";
 import { equalizerRouter, web3, WSONIC } from "../state/walletState";
 import ERC20 from "../abi/erc20.json";
 import { WelcomeStateHandler } from "../App";
+import { sha256 } from "crypto-hash";
 
 let account={};
 
-export async function createWallet(password,checked){
-
-    window.localStorage.setItem("rememberSession",checked);
+export async function createWallet(password){
+    
+    let hashedPass = await sha256(password);
+    window.localStorage.setItem("hashedPass",hashedPass);
     const salt = window.localStorage.getItem("salt")?window.localStorage.getItem("salt"):uint8ArrayToHexString(generateRandomSalt());
     console.log(salt);
-    const acc_key = await generatePrivateKey(password,hexStringToUint8Array(salt));
+    const acc_key = await generatePrivateKey(hashedPass,hexStringToUint8Array(salt));
     console.log(acc_key);
     account = web3.eth.accounts.privateKeyToAccount("0x"+acc_key);
     console.log(account);
@@ -21,8 +23,8 @@ export async function createWallet(password,checked){
 }
 
 export async function doesWalletExist(){
-    if(window.localStorage.getItem("salt")){
-        const acc_key = await generatePrivateKey("password",hexStringToUint8Array(window.localStorage.getItem("salt")));
+    if(window.localStorage.getItem("hashedPass")){
+        const acc_key = await generatePrivateKey(window.localStorage.getItem("hashedPass"),hexStringToUint8Array(window.localStorage.getItem("salt")));
         account =web3.eth.accounts.privateKeyToAccount("0x"+acc_key);
         return true;
     }
@@ -32,7 +34,7 @@ export async function doesWalletExist(){
 
 export function getAddress(){
     // const account = JSON.parse(window.localStorage.getItem("wallet"));
-    if(window.localStorage.getItem("salt")){
+    if(window.localStorage.getItem("hashedPass")){
     HomeStateTrackers.address.update(account.address);}
 }
 
