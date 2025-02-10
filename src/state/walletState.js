@@ -1,7 +1,7 @@
 import Web3 from 'web3';
 import router from "../abi/swap.json";
 
-export const web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.testnet.soniclabs.com/"));
+export const web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.blaze.soniclabs.com"));
 
 export const equalizerRouter = new web3.eth.Contract(router.router,"0xf08413857AF2CFBB6edb69A92475cC27EA51453b");
 

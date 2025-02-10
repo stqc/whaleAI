@@ -8,11 +8,10 @@ import SendEtherPopUp from './component/Popup';
 import AddTokenPopUp from './component/addToken';
 
 const AppContainer = styled.div`
-  background: #121212; // Dark theme background
+  background:rgb(0, 1, 25); // Dark theme background
   color: white;
   height: 100vh;
-  box-shadow: inset -1px 151px 516px -80px #013e3a;
-`;
+  box-shadow:inset -1px 529px 114px -80px rgb(1, 32, 62);`
 
 const PortolioContainer = styled.div`
     display: flex;

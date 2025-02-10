@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { sendEther } from '../utils/walletUtils';
 
 const Popup = styled.div`
-  background-color: #121212;
+  background-color: rgb(0, 1, 25);
   width: 300px;
   height: 200px;
   border-radius: 10px;
-  box-shadow: 0 0px 50px 10px #013e3a;
+  box-shadow: 0 0px 50px 10px rgb(1, 32, 62);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@ const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #013e3a;
+  color: rgb(1, 40, 79);
   padding:0;
   outline:none;
   font-size:1rem;
@@ -66,7 +66,7 @@ const Input = styled.input`
 const SendButton = styled.button`
   width: 80%;
   padding: 10px;
-  background-color: #173d3a; // Green to indicate action
+  background-color: rgb(1, 32, 62); 
   color: white;
   border: none;
   border-radius: 5px;
@@ -74,11 +74,15 @@ const SendButton = styled.button`
   margin-top: 10px;
 `;
 
+export let externalShowSendToken;
+
 const SendEtherPopUp =(props)=>{
 
     const [show,UpdateShow] = useState(false);
     const [address, setAddress] = useState('');
     const [amount, setAmount] = useState('');
+    
+    externalShowSendToken = UpdateShow;
 
     useEffect(()=>{
       UpdateShow(props.show);

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WhaleAI Wallet</string>
+    <string name="title_activity_main">WhaleAI Wallet</string>
+    <string name="package_name">com.whalewallet.app</string>
+    <string name="custom_url_scheme">com.whalewallet.app</string>
+</resources>

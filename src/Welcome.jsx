@@ -7,7 +7,7 @@ const FomoWallet = () => {
   const passRef = React.createRef();
   return (
     <div className="container" style={{width:"100vw"}}>
-        <h1>Welcome to Sonic Terminal</h1>
+        <h1>Welcome To WhaleAI Wallet</h1>
         <input className='login-page-input' type='password' ref={passRef} placeholder={window.localStorage.getItem("hashedPass")?"Enter your password to login to your wallet":"Set a password to get started"}></input>
 
       <div className="fixed-footer">

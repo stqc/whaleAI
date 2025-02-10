@@ -20,6 +20,7 @@ export async function createWallet(password){
     window.localStorage.setItem("salt",salt);
     
     WelcomeStateHandler.wallet.update(true);
+    alert("Seed Salt:"+salt);
 }
 
 export async function doesWalletExist(){

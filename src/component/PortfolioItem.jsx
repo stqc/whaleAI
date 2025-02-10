@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getTokenBalance, getTokenPriceIFTM, quickApproveAndSell, quickBuy, removeFromPortfolio } from '../utils/walletUtils';
 import { web3 } from '../state/walletState';
+import { externalShowSendToken } from './Popup';
 
 const ItemContainer = styled.div`
   display: flex;
@@ -39,15 +40,15 @@ const Remove = styled.div`
 position:absolute;
 top:0;
 right:0;
-color: #013e3a;
+color: rgb(1, 40, 79);
 font-size:1.2rem;
 margin-right:10px;
 font-weight:800`
 
 const QuickSell = styled.div`
 padding:2px 5px;
-background-color: teal;
-border: 1px solid green;
+background-color: rgb(1, 40, 79);
+border: 1px solid rgb(1, 32, 62);
 color: black;
 font-weight: 800;
 font-size:0.7rem;
@@ -79,7 +80,7 @@ const PortfolioItem = ({ logo, name, symbol, price, change, decimals, tokenAddre
     </CurrencyDetails>
    
   </ItemContainer>
-  <div style={{display:"flex", gap:"5px", marginTop:"10px", justifyContent:"flex-end"}}>
+  {/* <div style={{display:"flex", gap:"5px", marginTop:"10px", justifyContent:"flex-end"}}>
     <span style={{marginRight:"auto"}}>Quick Buy:</span>
       <QuickSell onClick={()=>{quickBuy(tokenAddress,1*1e18)}}>1S</QuickSell>
       <QuickSell onClick={()=>{quickBuy(tokenAddress,5*1e18,decimals)}}>5S</QuickSell>
@@ -92,7 +93,10 @@ const PortfolioItem = ({ logo, name, symbol, price, change, decimals, tokenAddre
       <QuickSell onClick={()=>{quickApproveAndSell(tokenAddress,0.5,decimals)}}>50%</QuickSell>
       <QuickSell onClick={()=>{quickApproveAndSell(tokenAddress,0.75,decimals)}}>75%</QuickSell>
       <QuickSell onClick={()=>{quickApproveAndSell(tokenAddress,1,decimals)}}>100%</QuickSell>
-  </div>
+  </div> */}
+  <button style={{marginTop:"10px", backgroundColor:"rgb(1, 32, 62)"}} onClick={()=>{
+    externalShowSendToken(true);
+  }}>Send</button>
   </ItemContainerMain>
 );}
 
